@@ -10,7 +10,7 @@ interface Props {
 
 const TodoList :FC <Props> = (props) => {
 
-      const [ todos, setTodos ] = useState([])
+      const [ todos, setTodos ] = useState<any>([])
 
       //Create Todo ******/////\\\\
       const addTodo = (todo: any) => {
@@ -23,7 +23,6 @@ const TodoList :FC <Props> = (props) => {
 
         setTodos(newsTodo)
       };
-      console.log(addTodo);
 
       const completeTodo = id => {
 
@@ -49,8 +48,8 @@ const TodoList :FC <Props> = (props) => {
       }
       
       //Delete Todo ******///\\\
-      const removeTodo = id => {       
-        const removeArr = todos.filter(todo => props.todo.id == id)
+      const removeTodo = id => {    
+        const removeArr = [...todos].filter(todo => todo.id != id)
         setTodos(removeArr);
       }
 

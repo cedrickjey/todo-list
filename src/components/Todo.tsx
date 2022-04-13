@@ -45,9 +45,13 @@ const Todo : FC <Props> = (props) => {
 
       <div className="icons">
         
-        <RiCloseCircleLine onClick={ () => {props.removeTodo(todo.id);} } />
+        <RiCloseCircleLine 
+        onClick={ () => {props.removeTodo(todo.id);}  } />
 
-        <TiEdit onClick={() => setEdit({ id: todo.id, value: todo.text })} className="edit-icon"/>
+        <TiEdit onClick={() => {
+          console.log('todo =',todo);
+          setEdit({ id: todo.id, value: todo.text });
+        }} className="edit-icon"/>
       </div>
     </div>
   ));
